@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* Importa a fonte Montserrat do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Define um novo tipo de fonte chamado "Hip" */
+@font-face {
+  font-family: "Hip";
+  src: url(../../fonts/Hip\ Horay.otf) format(opentype); /* Caminho da fonte Hip Horay */
+  font-weight: normal;
+}
+
+/* Define variáveis de cor e fonte */
+:root {
+  --cor0: #000000; /* Cor preta */
+  --cor1: #0d0d0d; /* Cor escura */
+  --cor2: #014034; /* Cor verde escuro */
+  --cor3: #02735e; /* Cor verde */
+  --cor4: #038c73; /* Cor verde claro */
+  --cor5: #36bfb1; /* Cor verde azulado */
+  --cor6: #ffffff; /* Cor branca */
+  --fonte-padrao: "Arial", Verdana, Helvetica, sans-serif; /* Fonte padrão */
+  --fonte-destaque: "Montserrat", sans-serif, cursive; /* Fonte de destaque */
+  --fonte-especial: "Hip", cursive; /* Fonte especial */
+}
+
+/* Estilos globais do body */
+body {
+  background-image: url("../img/pexels-irina-iriser-1707213.jpg"); /* Imagem de fundo */
+  background-position: center; /* Posição da imagem de fundo */
+  background-size: cover; /* Tamanho de exibição da imagem de fundo */
+  background-attachment: fixed; /* Fixação da imagem de fundo */
+  font-size: 10px; /* Tamanho da fonte */
+  font-family: var(--fonte-padrao); /* Fonte geral */
+}
+
+/* Reset de margem e preenchimento */
+* {
+  margin: 0; /* Margem */
+  padding: 0; /* Preenchimento */
+}
+
+/* Estilos das teclas */
+div.keys {
+  display: flex; /* Alinhamento em linha */
+  flex: 1; /* Ocupa todo o espaço disponível */
+}
+
+div.key {
+  border: 0.4em solid var(--cor5); /* Borda das teclas */
+  border-radius: 50px; /* Borda arredondada */
+  margin: 1em; /* Espaçamento entre as teclas */
+  font-size: 1.5em; /* Tamanho da fonte */
+  padding: 1em; /* Espaçamento interno */
+  transition: all 0.07s ease; /* Transição suave */
+  width: 4em; /* Largura */
+  text-align: center; /* Alinhamento do texto */
+  color: var(--cor6); /* Cor do texto */
+  background-color: #00000085; /* Cor de fundo */
+  text-shadow: 0 0 0.5em var(--cor0); /* Sombra do texto */
+}
+
+/* Estilos das teclas quando estão sendo tocadas */
+.playing {
+  transform: scale(1.1); /* Aumenta um pouco de tamanho */
+  border-color: var(--cor5); /* Cor da borda */
+  box-shadow: 0 0 1em var(--cor5); /* Sombra */
+}
+
+/* Estilos para as teclas no teclado */
+kbd {
+  display: block; /* Exibição em bloco */
+  font-size: 4em; /* Tamanho da fonte */
+}
+
+/* Estilos para os nomes dos sons */
+.sound {
+  font-size: 0.8em; /* Tamanho da fonte */
+  text-transform: uppercase; /* Transformação para maiúsculas */
+  letter-spacing: 0.1em; /* Espaçamento entre letras */
+  color: var(--cor5); /* Cor do texto */
+}

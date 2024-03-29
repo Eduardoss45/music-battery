@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Definição do conjunto de caracteres e configuração da viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Link para o arquivo CSS responsável pelo estilo da página -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Título da página -->
+  <title>Bateria</title>
+</head>
+
+<body>
+  <!-- Div que contém as teclas da bateria -->
+  <div class="keys">
+    <!-- Cada div representa uma tecla da bateria, com sua respectiva letra e nome do som -->
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <!-- As outras teclas seguem o mesmo padrão -->
+    ...
+  </div>
+  <!-- Tags de áudio para cada som da bateria -->
+  <audio data-key="65" src="./sounds/clap.wav"></audio>
+  <!-- As outras tags de áudio seguem o mesmo padrão -->
+  ...
+  <script>
+    // Função para remover a classe de transição quando a animação termina
+    function removeTransition(e) { /* loop de verificação */
+      if (e.propertyName !== 'transform') return; /* se a key X não tiver a classe transform retorne */
+      e.target.classList.remove('playing'); /* procure a key X e remova playing */
+    }
+
+    // Função para reproduzir o som associado a uma tecla
+    function playSound(e) { /* retorna o som usando o valor decimal do caracter */
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); /* audio correspondente */
+      const key = document.querySelector(`div[data-key="${e.keyCode}"]`); /* key correspondente */
+      if (!audio) return; /* audio de retorno */
+
+      key.classList.add('playing'); /* adiciona animação a key */
+      audio.currentTime = 0;
+      audio.play();
+    }
+
+    // Seleciona todas as teclas e adiciona um ouvinte de evento para remover a transição
+    const keys = Array.from(document.querySelectorAll('.key')); /* remove a transição da key para seu estado original */
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition)); /* recepção de valores */
+    // Adiciona um ouvinte de evento para detectar quando uma tecla é pressionada
+    window.addEventListener('keydown', playSound); /* atribuição a o evento */
+  </script>
+</body>
+
+</html>
